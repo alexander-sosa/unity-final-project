@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D _rigidbody2D;
+    private Animator _animator;
     private float _horizontal;
     
     [SerializeField] private float movementSpeed;
@@ -16,12 +17,14 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
     }
 
     void Update()
     {
         // Horizontal movement
         _horizontal = Input.GetAxisRaw("Horizontal");
+        _animator.SetBool("running", _horizontal != 0.0f);
         if (_horizontal < 0.0f) transform.localScale = new Vector3(-0.2f, 0.2f, 0.2f);
         else if(_horizontal > 0.0f) transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
 
