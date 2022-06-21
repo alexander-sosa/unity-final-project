@@ -7,8 +7,11 @@ public class CameraScript : MonoBehaviour
     [SerializeField] private GameObject Player;
     void Update()
     {
-        Vector3 position = transform.position;
-        position.x = Player.transform.position.x;
-        transform.position = position;
+        if (Player != null && Player.transform.position.x > 0)
+        {
+            Vector3 position = transform.position;
+            position.x = Player.transform.position.x;
+            transform.position = position;
+        }
     }
 }
