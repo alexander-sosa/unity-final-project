@@ -21,8 +21,11 @@ public class EnemyBehavior : MonoBehaviour
 
     void Update()
     {
-        _right = _player.transform.position.x >= transform.position.x;
-        _distance = Math.Abs(_player.transform.position.x - transform.position.x);
+        if (Math.Abs(_player.transform.position.x - transform.position.x) > 0.5f)
+        {
+            _right = _player.transform.position.x >= transform.position.x;
+            _distance = Math.Abs(_player.transform.position.x - transform.position.x);
+        }
     }
 
     private void FixedUpdate()
@@ -31,6 +34,20 @@ public class EnemyBehavior : MonoBehaviour
         {
             // Debug.Log("Following...");
             _rigidbody2D.velocity = new Vector2((_right ? 1 : -1) * movementSpeed, _rigidbody2D.velocity.y);
+            var transformLocalScale = transform.localScale;
+            if (_right && transform.localScale.x > 0)
+            {
+                //Debug.Log("Pa la derecha (* -1)");
+                transformLocalScale.x *= -1;
+                transform.localScale = transformLocalScale;
+            }
+
+            if (!_right && transform.localScale.x < 0)
+            {
+                //Debug.Log("Pa la izquierda (* -1)");
+                transformLocalScale.x *= -1;
+                transform.localScale = transformLocalScale;
+            }
         }
     }
 }

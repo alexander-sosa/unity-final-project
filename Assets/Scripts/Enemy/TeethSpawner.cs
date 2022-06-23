@@ -2,28 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BrickSpawner : MonoBehaviour
+public class TeethSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject player;
-    [SerializeField] private GameObject brick1;
-    [SerializeField] private GameObject brick2;
-    [SerializeField] private GameObject brick3;
+    [SerializeField] private GameObject teeth;
     [SerializeField] private float timeToSpawn;
+    [SerializeField] private int teethToInstantiate;
 
-    private List<GameObject> _bricks;
     private float _timeToSpawnAux;
-    private int _bricksToInstantiate;
         
     void Start()
     {
-        _bricks = new List<GameObject>
-        {
-            brick1,
-            brick2,
-            brick3
-        };
         _timeToSpawnAux = timeToSpawn;
-        _bricksToInstantiate = 3;
     }
 
     void Update()
@@ -33,11 +23,16 @@ public class BrickSpawner : MonoBehaviour
             timeToSpawn -= Time.deltaTime;
             if (timeToSpawn <= 0.0f)
             {
-                for(int i = 0; i<_bricksToInstantiate; i++)
+                for(int i = 0; i<teethToInstantiate; i++)
                 {
                     Instantiate(
-                        _bricks[Random.Range(0, _bricks.Count)], 
-                        new Vector3(player.transform.position.x, 6.5f), 
+                        teeth, 
+                        new Vector3(
+                            Random.Range(
+                                player.transform.position.x - 2.0f, 
+                                player.transform.position.x + 2.0f
+                            ), 
+                            Random.Range(5.5f, 7.5f)), 
                         Quaternion.identity
                     );
                 }
