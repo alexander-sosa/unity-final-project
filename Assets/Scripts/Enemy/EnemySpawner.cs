@@ -35,19 +35,21 @@ public class EnemySpawner : MonoBehaviour
             timeToSpawn1 -= Time.deltaTime;
             if (timeToSpawn1 <= 0 && instances1 > 0)
             {
-                Instantiate(enemy1Prefab, new Vector3(26.5f, 3.5f), Quaternion.identity);
+                float x = Random.Range(24.5f, 28.5f);
+                Instantiate(enemy1Prefab, new Vector3(x, 3.5f), Quaternion.identity);
                 timeToSpawn1 = _timeToSpawn1Aux;
                 instances1--;
             }
         }
         
         // Enemies 2
-        if (player.transform.position.x >= 30)
+        if (player.transform.position.x >= 34.8f)
         {
             timeToSpawn2 -= Time.deltaTime;
             if (timeToSpawn2 <= 0 && instances2 > 0)
             {
-                Instantiate(enemy2Prefab, new Vector3(40.0f, 4.0f), Quaternion.identity);
+                float x = Random.Range(39.0f, 43.0f);
+                Instantiate(enemy2Prefab, new Vector3(x, 4.0f), Quaternion.identity);
                 timeToSpawn2 = _timeToSpawn2Aux;
                 instances2--;
             }
