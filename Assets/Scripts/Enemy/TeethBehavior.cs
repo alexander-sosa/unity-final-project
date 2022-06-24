@@ -5,7 +5,14 @@ using UnityEngine;
 
 public class TeethBehavior : MonoBehaviour
 {
+    [SerializeField] private AudioClip sound;
     [SerializeField] private float lifeTime;
+
+    private void Start()
+    {
+        Camera.main.GetComponent<AudioSource>().PlayOneShot(sound);
+
+    }
 
     void Update()
     {

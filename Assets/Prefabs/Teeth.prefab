@@ -144,4 +144,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 124fd9ee3a589cb41b7d3147ad5dc704, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sound: {fileID: 8300000, guid: a5b697f531a4fb84983848a540f4f748, type: 3}
   lifeTime: 5

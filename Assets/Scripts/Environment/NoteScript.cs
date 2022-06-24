@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class NoteScript : MonoBehaviour
 {
+    [SerializeField] private AudioClip sound;
     [SerializeField] private bool found;
     [SerializeField] private int id;
     
@@ -23,6 +24,7 @@ public class NoteScript : MonoBehaviour
         if (col.gameObject.CompareTag("Player"))
         {
             Debug.Log("Note Found!");
+            Camera.main.GetComponent<AudioSource>().PlayOneShot(sound);
             found = true;
             gameObject.SetActive(false);
         }

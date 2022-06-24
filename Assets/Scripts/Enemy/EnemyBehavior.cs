@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class EnemyBehavior : MonoBehaviour
 {
+    [SerializeField] private AudioClip sound;
     private GameObject _player;
+    
     [SerializeField] private float movementSpeed;
     [SerializeField] private float distanceToFollow;
     [SerializeField] private float lifeTime;
@@ -18,6 +20,7 @@ public class EnemyBehavior : MonoBehaviour
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _player = GameObject.FindWithTag("Player");
+        Camera.main.GetComponent<AudioSource>().PlayOneShot(sound);
     }
 
     void Update()

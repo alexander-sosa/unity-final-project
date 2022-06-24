@@ -6,7 +6,9 @@ public class GameStats : MonoBehaviour
 {
     public static GameStats Instance;
 
+    [SerializeField] private AudioClip sound;
     [SerializeField] private GameObject player;
+    
     [SerializeField] private int notes;
     [SerializeField] private float life;
     private int _tries;
@@ -28,6 +30,7 @@ public class GameStats : MonoBehaviour
         _time += Time.deltaTime;
         if (life <= 0.0f)
         {
+            Camera.main.GetComponent<AudioSource>().PlayOneShot(sound);
             Debug.Log("Dead!");
             _paused = true;
             player.SetActive(false);

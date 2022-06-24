@@ -5,6 +5,7 @@ using UnityEngine;
 public class ToolsSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject player;
+    [SerializeField] private AudioClip sound;
     
     [SerializeField] private GameObject bridge;
     [SerializeField] private float bridgeX;
@@ -20,6 +21,7 @@ public class ToolsSpawner : MonoBehaviour
         
         if (player.transform.position.x >= bridgeX - 2.0f && !_bridged)
         {
+            Camera.main.GetComponent<AudioSource>().PlayOneShot(sound);
             Instantiate(bridge, new Vector3(bridgeX, 6.5f), Quaternion.identity);
             _bridged = true;
         }

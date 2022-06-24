@@ -138,6 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5ffa78504af1b64d8523d7d42edab08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sound: {fileID: 8300000, guid: 6a58d88d97500c140b36977ebb6b3178, type: 3}
   movementSpeed: 1
   distanceToFollow: 3
   lifeTime: 10
