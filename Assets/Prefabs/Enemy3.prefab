@@ -166,3 +166,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 2
   distanceToFollow: 10
+  lifeTime: 100000000

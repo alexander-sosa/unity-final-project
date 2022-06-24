@@ -42,6 +42,7 @@ public class GameStats : MonoBehaviour
         AddTry();
         ResetTime();
         SetLife(100);
+        _paused = false;
         
         // Reset objects
         GameObject camera = GameObject.FindGameObjectWithTag("MainCamera");

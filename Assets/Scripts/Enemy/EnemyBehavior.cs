@@ -8,6 +8,7 @@ public class EnemyBehavior : MonoBehaviour
     private GameObject _player;
     [SerializeField] private float movementSpeed;
     [SerializeField] private float distanceToFollow;
+    [SerializeField] private float lifeTime;
 
     private bool _right;
     private float _distance;
@@ -22,7 +23,9 @@ public class EnemyBehavior : MonoBehaviour
     void Update()
     {
         if (_player == null) return;
-        
+        if (lifeTime <= 0.0f) Destroy(gameObject);
+
+        lifeTime -= Time.deltaTime;
         if (Math.Abs(_player.transform.position.x - transform.position.x) > 0.5f)
         {
             _right = _player.transform.position.x >= transform.position.x;
@@ -50,6 +53,14 @@ public class EnemyBehavior : MonoBehaviour
                 transformLocalScale.x *= -1;
                 transform.localScale = transformLocalScale;
             }
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            GameStats.Instance.ApplyDamage(0.5f);
         }
     }
 }

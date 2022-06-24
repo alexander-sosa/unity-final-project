@@ -22,6 +22,9 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        // Fall check
+        // CheckFall();
+        
         // Horizontal movement
         _horizontal = Input.GetAxisRaw("Horizontal");
         _animator.SetBool("running", _horizontal != 0.0f);
@@ -48,10 +51,9 @@ public class PlayerMovement : MonoBehaviour
     {
         _rigidbody2D.AddForce(Vector2.up * jumpSpeed);
     }
-
+    
     private void OnBecameInvisible()
     {
         GameStats.Instance.SetLife(0.0f);
     }
-    
 }

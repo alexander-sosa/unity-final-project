@@ -140,6 +140,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 1
   distanceToFollow: 3
+  lifeTime: 10
 --- !u!70 &8079675705663679508
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
