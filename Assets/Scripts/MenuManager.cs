@@ -16,12 +16,18 @@ public class MenuManager : MonoBehaviour
 
     }
 
+    public void NotesButton()
+    {
+        SceneManager.LoadScene("NotesMenu");
+
+    }
+
     public void ExitButton()
     {
         Debug.Log("Salir del juego");
     }
 
-    public void ControlsButtonBack()
+    public void BackButton()
     {
         SceneManager.LoadScene("MainMenu");
 
