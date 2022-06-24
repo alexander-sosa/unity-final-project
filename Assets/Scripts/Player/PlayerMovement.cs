@@ -48,4 +48,10 @@ public class PlayerMovement : MonoBehaviour
     {
         _rigidbody2D.AddForce(Vector2.up * jumpSpeed);
     }
+
+    private void OnBecameInvisible()
+    {
+        GameStats.Instance.SetLife(0.0f);
+    }
+    
 }

@@ -19,6 +19,8 @@ public class TeethSpawner : MonoBehaviour
 
     void Update()
     {
+        if (player == null) return;
+        
         if (player.transform.position.x > 50.0f && player.transform.position.x < 100.0f)
         {
             if (player.transform.position.x >= 75.0f && !speeded)

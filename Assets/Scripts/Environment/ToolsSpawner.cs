@@ -16,6 +16,8 @@ public class ToolsSpawner : MonoBehaviour
 
     void Update()
     {
+        if (player == null) return;
+        
         if (player.transform.position.x >= bridgeX - 2.0f && !_bridged)
         {
             Instantiate(bridge, new Vector3(bridgeX, 6.5f), Quaternion.identity);

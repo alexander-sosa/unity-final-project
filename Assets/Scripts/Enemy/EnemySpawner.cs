@@ -29,6 +29,8 @@ public class EnemySpawner : MonoBehaviour
 
     void Update()
     {
+        if (player == null) return;
+        
         // Enemies 1
         if (player.transform.position.x >= 23)
         {

@@ -21,6 +21,8 @@ public class EnemyBehavior : MonoBehaviour
 
     void Update()
     {
+        if (_player == null) return;
+        
         if (Math.Abs(_player.transform.position.x - transform.position.x) > 0.5f)
         {
             _right = _player.transform.position.x >= transform.position.x;
