@@ -11,8 +11,9 @@ public class KeyScript : MonoBehaviour
         if (col.gameObject.CompareTag("Player"))
         {
             Debug.Log("Enter key...");
+            FinalPanel.Instance.OpenPanel();
             // if key == okay
-            // Camera.main.GetComponent<AudioSource>().PlayOneShot(sound);
+            //Camera.main.GetComponent<AudioSource>().PlayOneShot(sound);
         }
     }
 }

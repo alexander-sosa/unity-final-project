@@ -54,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
     
     private void OnBecameInvisible()
     {
+        Debug.Log("cae");
         GameStats.Instance.SetLife(0.0f);
     }
 }

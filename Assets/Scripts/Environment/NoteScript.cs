@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class NoteScript : MonoBehaviour
 {
+
     [SerializeField] private AudioClip sound;
     [SerializeField] private bool found;
     [SerializeField] private int id;
@@ -27,6 +28,7 @@ public class NoteScript : MonoBehaviour
             Camera.main.GetComponent<AudioSource>().PlayOneShot(sound);
             found = true;
             gameObject.SetActive(false);
+            NotePanelController.Instance.showPanel(GetId());
         }
     }
 
@@ -44,4 +46,5 @@ public class NoteScript : MonoBehaviour
     {
         return id;
     }
+
 }

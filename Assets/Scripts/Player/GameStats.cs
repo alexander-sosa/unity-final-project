@@ -34,6 +34,7 @@ public class GameStats : MonoBehaviour
             Debug.Log("Dead!");
             _paused = true;
             player.SetActive(false);
+            GameOverPaner.Instance.OpenPanel();
         }
     }
 
@@ -52,6 +53,7 @@ public class GameStats : MonoBehaviour
         camera.transform.position = new Vector3(0.1f, 0.0f, -10.0f);
         player.SetActive(true);
         player.transform.position = new Vector3(-8.21f, 0.0f, 0.0f);
+        GameOverPaner.Instance.ClosePanel();
     }
 
     public int GetNotes()
