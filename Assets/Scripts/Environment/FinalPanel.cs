@@ -39,6 +39,7 @@ public class FinalPanel : MonoBehaviour
         if(guest.ToLower() == "alarma"){
             Debug.Log("rigth");
             Camera.main.GetComponent<AudioSource>().PlayOneShot(sound);
+            panel.SetActive(false);
             panelStatic.SetActive(true);
 
         }else{

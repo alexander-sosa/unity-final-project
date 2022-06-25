@@ -24,11 +24,14 @@ public class NoteScript : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Player"))
         {
+            NotePanelController.Instance.showPanel(GetId(), gameObject);
             Debug.Log("Note Found!");
             Camera.main.GetComponent<AudioSource>().PlayOneShot(sound);
             found = true;
+            NotesController.Instance.setVisibility(GetId());
             gameObject.SetActive(false);
-            NotePanelController.Instance.showPanel(GetId());
+            GameStats.Instance.AddNote();
+            
         }
     }
 

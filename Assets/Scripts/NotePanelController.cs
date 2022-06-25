@@ -13,8 +13,6 @@ public class NotePanelController : MonoBehaviour
     int index;
     public float speed;
 
-    public GameObject Button;
-
     //public GameObject btnQuitar;
     public GameObject panel;
     public GameObject text;
@@ -23,7 +21,7 @@ public class NotePanelController : MonoBehaviour
     void Start()
     {
         Instance = this;
-         panel.SetActive(false);
+        panel.SetActive(false);
     }
 
    /* // Update is called once per frame
@@ -35,16 +33,13 @@ public class NotePanelController : MonoBehaviour
         }
     }*/
 
-    IEnumerator TxtPanel(int id)
+    IEnumerator TxtPanel(int id, GameObject obj)
     {
-        string name = Button.name;
-        string[] numNote;
-        numNote = name.Split(char.Parse("e"));
             
         txt = "";
         text.GetComponent<Text>().text = "";
 
-        Debug.Log(numNote[1]);
+        Debug.Log(id);
         string rffp = Application.streamingAssetsPath + "/Notes/" + "nota"+ id + ".txt";                         
 
         List<string> fileLines = File.ReadAllLines(rffp).ToList();
@@ -60,12 +55,15 @@ public class NotePanelController : MonoBehaviour
             text.GetComponent<Text>().text += letra;
             yield return new WaitForSeconds(speed);
         }
+        //obj.SetActive(false);
+
+        
     }
 
-    public void showPanel(int id)
+    public void showPanel(int id, GameObject obj)
     {
         panel.SetActive(true);
-        StartCoroutine(TxtPanel(id));
+        StartCoroutine(TxtPanel(id, obj));
     }
 
     public void ClosePanel()

@@ -7,6 +7,7 @@ using System.Linq;
 
 public class NotesController : MonoBehaviour
 {
+    public static NotesController Instance;
     public Sprite note;
     public Sprite noteLock;
 
@@ -16,6 +17,7 @@ public class NotesController : MonoBehaviour
 
     void Start()
     {
+        Instance = this;
         CreateTextFile();
         changeImages();
         

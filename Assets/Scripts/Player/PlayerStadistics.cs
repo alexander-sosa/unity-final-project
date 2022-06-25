@@ -13,9 +13,9 @@ public class PlayerStadistics : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        time.text = GameStats.Instance.GetTime().ToString();
-        life.text += GameStats.Instance.GetLife();
-        notes.text += GameStats.Instance.GetNotes();
+        time.text = "Tiempo: "+ GameStats.Instance.GetTime().ToString();
+        life.text +=  " "+ GameStats.Instance.GetLife()+ " %";
+        notes.text +=  " "+ GameStats.Instance.GetNotes();
     }
 
     // Update is called once per frame

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameOverPaner : MonoBehaviour
 {
@@ -25,4 +26,11 @@ public class GameOverPaner : MonoBehaviour
         panel.SetActive(false);
             
     }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+            
+    }
+
 }
