@@ -23,6 +23,7 @@ public class FinalPanel : MonoBehaviour
     public void OpenPanel()
     {
         panel.SetActive(true);
+        //SendResp();
             
     }
 
